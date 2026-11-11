@@ -1,0 +1,81 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+:root{
+    --font_padrao: arial, helvetica, verdana, sans-serif;
+    --fonte_destaque: "pt sans", sans-serif;
+    --cor1: #16b7c9;
+    --cor2: #0b134a;
+    --cor3: #000000;
+}
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: var(--font_padrao);
+}
+
+body{
+    font-family: var(--fonte_destaque);
+    background: var(--cor2);
+    display: flex;
+    height: 100vh;
+}
+
+main{
+    position: relative;
+    background-color: white;
+    flex: 1;
+    max-width: 600px;
+    min-width: 280px;
+    min-height: 500px;
+    align-self: center;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.43);
+}
+main> article> h1{
+    color: var(--cor1);
+    font-family: var(--fonte_destaque);
+    text-shadow: 1px 0px 5px rgba(0, 0, 0, 0.388);
+    text-align: center;
+    margin: 10px 0px 40px 0px;
+
+}
+
+.horarios{
+    position: absolute;
+    display: none;
+    background-color: var(--cor1);
+    border: 1px solid black;
+    max-width: 125px;
+    margin-top: 5px;
+    padding: 3px;
+    border-radius: 10px;
+    text-align: left;
+}
+.horarios li{
+    margin-top: 10px;
+}
+
+.sala1> a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.sala1:hover .horarios{
+    display: block;
+}
+
+a.botao_voltar{
+    position: absolute;
+
+    top: 95%;
+
+    
+}
