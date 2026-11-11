@@ -103,6 +103,10 @@ div.menu_reserva{
     background-color: var(--cor2);
     padding: 10px;
     border-radius: 10px;
+    
+}
+div.menu_reserva li{
+    margin-bottom: 3px;
 }
 
 div.menu_reserva input{
