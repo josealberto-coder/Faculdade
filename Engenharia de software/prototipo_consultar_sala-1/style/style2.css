@@ -23,6 +23,7 @@ body{
 }
 
 main{
+    position: relative;
     background-color: white;
     min-width: 500px;
     min-height: 500px;
@@ -65,4 +66,12 @@ main> article> h2{
 
 .sala1:hover .horarios{
     display: block;
+}
+
+a.botao_voltar{
+    position: absolute;
+
+    top: 95%;
+
+    
 }
