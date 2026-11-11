@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Protótipo</title>
+    <link rel="stylesheet" href="style/style2.css">
+
+    <script type ="text/javascript">
+
+        const disponivel=()=>{
+            alert("A reserva foi realizada com sucesso.");
+        }
+        const ocupado=()=>{
+            alert("Sala indisponível.");
+        }
+
+    </script>
+
+</head>
+<body>
+    <main>
+        <article>
+            <h1>Consulte os horários</h1>
+
+            <ul>
+                <li class="sala1">
+                    <a href="#">Sala-1</a>
+
+                <div class="horarios">
+                    <ul>
+                        <li>Ás 9h: livre</li>
+                        <li>Ás 10h: Ocupado</li>
+                        <li>Ás 11h: livre</li>
+                    </ul>
+                </div>
+                </li>
+                 <a href="#" class="botao_reserva">Reservar
+
+                    <div class="menu_reserva">
+                        <ul>
+                            <li><input type="submit" value="9h" onclick="disponivel()"></li>
+                            <li><input type="submit" value="10h" onclick="ocupado()"></li>
+                            <li><input type="submit" value="11h" onclick="disponivel()"></li>
+                        </ul>
+
+                    </div>
+                 </a>
+            </ul>
+        </article>
+
+        <a href="index.html" class="botao_voltar"><img src="image/botao_voltar.webp" alt="voltar">voltar</a>
+    </main>
+</body>
+</html>
