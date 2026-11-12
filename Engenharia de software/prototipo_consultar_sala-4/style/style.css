@@ -14,6 +14,11 @@
     margin: 0px;
     padding: 0px;
     font-family: var(--fontePadrao);
+    list-style-type: none;
+
+body{
+    background-color: white;
+}
 }
 header{
     display: flex;
@@ -38,7 +43,7 @@ nav{
 
 }
 nav> ul{
-    columns: 2;
+    columns: 3;
     
 }
 
@@ -46,10 +51,42 @@ nav> ul >li >a{
     text-decoration: none;
     font-size: 1.05em;
     color: var(--cor2);
+    padding: 10px;
 }
 nav > ul> li> a:hover{
-    font-size: 1.04em;
+    background-color: var(--cor1);
+    border-radius: 10px;
+    
 }
+
+#Cores_fundo ul{
+    position: absolute;
+    background-color: var(--cor2);
+    padding: 5px;
+    border-radius: 10px;
+    columns: 1;
+    text-align: center;
+
+    top: 9%;
+    left: 48.3%;
+
+}
+.Escuro_claro li{
+    margin: 10px 0px 10px 0px;
+}
+
+.Escuro_claro input{
+    background-color: var(--cor1);
+    cursor: pointer;
+}
+
+#Cores_fundo> ul{
+    display: none;
+}
+#Cores_fundo:hover > ul{
+    display: block;
+}
+
 main{
     display: flex;
     flex-wrap: wrap;

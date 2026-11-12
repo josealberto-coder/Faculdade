@@ -9,15 +9,33 @@
 
     <link rel="stylesheet" href="style/style.css">
 
+    <script>
+        const corEscura=()=>{
+            document.getElementById("fundo").style.backgroundColor="rgb(28, 28, 28)"
+        }
+        const corClara=()=>{
+            document.getElementById("fundo").style.backgroundColor="white"
+        }
+
+    </script>
     
 </head>
-<body>
+<body id="fundo">
     <header>
         <img src="image/logo.png" alt="logo"><h1>Sala</h1>
         <nav>
-            <ul type="none">
+            <ul>
                 <li><a href="#">Menu</a></li>
                 <li><a href="#">Suporte</a></li>
+
+                <li id ="Cores_fundo">
+                    <a href="#">Cor</a>
+                    <ul class="Escuro_claro">
+                        <li><input type="button" value="Escuro" onclick="corEscura()"></li>
+                        <li><input type="button" value=" Claro " onclick="corClara()"></li>
+                    </ul>
+
+                </li>
             </ul>
         </nav>
     </header>
