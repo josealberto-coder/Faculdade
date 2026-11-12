@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,12 +11,32 @@
 
     <script type ="text/javascript">
 
-        const disponivel=()=>{
-            alert("A reserva foi realizada com sucesso.");
+       const alternarReserva = (hora, botao) => {
+            const elementoStatus = document.getElementById(`status_${hora}h`);
+            const botao_ = document.getElementById(`botao${botao}`)
+
+            if (elementoStatus.innerText.toLowerCase() === "livre") {
+                elementoStatus.innerText = "Ocupado";
+                botao_.style.display="inline";
+                alert(`A sala foi reservada para horário ${hora}h`);
+            
+            } else { 
+                alert(`O horário das ${hora}h já está ocupado!`);
+            }
         }
-        const ocupado=()=>{
-            alert("Sala indisponível.");
+
+
+        const cancelar_reserva=(hora, botao)=>{
+            const status = document.getElementById(`status_${hora}h`);
+            const botao_ = document.getElementById(`botao${botao}`);
+
+            if(status.innerText.toLowerCase() === "ocupado"){
+                status.innerText = "Livre";
+                botao_.style.display="none";
+            }else{
+                alert("A sala está livre.");
         }
+    }
 
     </script>
 
@@ -31,27 +52,32 @@
 
                 <div class="horarios">
                     <ul>
-                        <li>Ás 9h: livre</li>
-                        <li>Ás 10h: Ocupado</li>
-                        <li>Ás 11h: livre</li>
+                        <li>Ás 9h: <span id="status_9h">Livre</span></li>
+                        <input type="button" value="Cancelar" onclick="cancelar_reserva(9, 1)" style="display: none;"id="botao1">
+                        <li>Ás 10h: <span id ="status_10h">Livre</span></li>
+                        <input type="button" value="Cancelar" onclick="cancelar_reserva(10, 2)"style="display: none;" id="botao2">
+                        <li>Ás 11h: <span id="status_11h">Livre</span></li>
+                        <input type="button" value="Cancelar" onclick="cancelar_reserva(11, 3)"style="display: none;" id="botao3">
                     </ul>
                 </div>
                 </li>
+
                  <a href="#" class="botao_reserva">Reservar
 
                     <div class="menu_reserva">
                         <ul>
-                            <li><input type="submit" value="9h" onclick="disponivel()"></li>
-                            <li><input type="submit" value="10h" onclick="ocupado()"></li>
-                            <li><input type="submit" value="11h" onclick="disponivel()"></li>
+                            <li><input type="submit" value="9h" onclick="alternarReserva(9, 1)"></li>
+                            <li><input type="submit" value="10h" onclick="alternarReserva(10, 2)"></li>
+                            <li><input type="submit" value="11h" onclick="alternarReserva(11, 3)"></li>
                         </ul>
-
                     </div>
                  </a>
             </ul>
         </article>
 
-        <a href="index.html" class="botao_voltar"><img src="image/botao_voltar.webp" alt="voltar">voltar</a>
+        <a href="index.html" class="botao_voltar">
+        <img src="image/botao_voltar.webp" alt="voltar">voltar</a>
     </main>
+
 </body>
 </html>
