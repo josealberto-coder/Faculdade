@@ -40,6 +40,7 @@ nav{
     display: inline-block;
     margin-left: 50px;
     align-self: center;
+    position: relative;
 
 }
 nav> ul{
@@ -67,8 +68,8 @@ nav > ul> li> a:hover{
     columns: 1;
     text-align: center;
 
-    top: 9%;
-    left: 23.6%;
+    top: 150%;
+    left: 70%;
 
 }
 .Escuro_claro li{
