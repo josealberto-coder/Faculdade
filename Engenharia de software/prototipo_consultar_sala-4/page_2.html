@@ -10,20 +10,70 @@
     <link rel="stylesheet" href="style/style2.css">
 
     <script type ="text/javascript">
+        let contador = 1;
+       const alternarReserva_9h = (hora, botao) => {
+        const elementoStatus = document.getElementById(`status_${hora}h`);
+        if(contador <= 2){
 
-       const alternarReserva = (hora, botao) => {
-            const elementoStatus = document.getElementById(`status_${hora}h`);
             const botao_ = document.getElementById(`botao${botao}`)
-
             if (elementoStatus.innerText.toLowerCase() === "livre") {
-                elementoStatus.innerText = "Ocupado";
+                contador++;
                 botao_.style.display="inline";
                 alert(`A sala foi reservada para horário ${hora}h`);
-            
-            } else { 
-                alert(`O horário das ${hora}h já está ocupado!`);
             }
+            if(contador >2){
+                elementoStatus.innerText = "Ocupado";
+            }
+
+        }else{
+            alert(`O horário das ${hora}h está ocupado.`);
+        
         }
+            
+    }
+        let contador2 = 1;
+       const alternarReserva_10h = (hora, botao) => {
+        const elementoStatus = document.getElementById(`status_${hora}h`);
+        if(contador2 <= 2){
+
+            const botao_ = document.getElementById(`botao${botao}`)
+            if (elementoStatus.innerText.toLowerCase() === "livre") {
+                contador2++;
+                botao_.style.display="inline";
+                alert(`A sala foi reservada para horário ${hora}h`);
+            }
+            if(contador2 >2){
+                elementoStatus.innerText = "Ocupado";
+            }
+
+        }else{
+            alert(`O horário das ${hora}h está ocupado.`);
+        
+        }
+            
+    }
+
+        let contador3 = 1;
+       const alternarReserva_11h = (hora, botao) => {
+        const elementoStatus = document.getElementById(`status_${hora}h`);
+        if(contador3 <= 2){
+
+            const botao_ = document.getElementById(`botao${botao}`)
+            if (elementoStatus.innerText.toLowerCase() === "livre") {
+                contador3++;
+                botao_.style.display="inline";
+                alert(`A sala foi reservada para horário ${hora}h`);
+            }
+            if(contador3 >2){
+                elementoStatus.innerText = "Ocupado";
+            }
+
+        }else{
+            alert(`O horário das ${hora}h está ocupado.`);
+        
+        }
+            
+    }
 
 
         const cancelar_reserva=(hora, botao)=>{
@@ -66,9 +116,9 @@
 
                     <div class="menu_reserva">
                         <ul>
-                            <li><input type="submit" value="9h" onclick="alternarReserva(9, 1)"></li>
-                            <li><input type="submit" value="10h" onclick="alternarReserva(10, 2)"></li>
-                            <li><input type="submit" value="11h" onclick="alternarReserva(11, 3)"></li>
+                            <li><input type="submit" value="9h" onclick="alternarReserva_9h(9, 1)"></li>
+                            <li><input type="submit" value="10h" onclick="alternarReserva_10h(10, 2)"></li>
+                            <li><input type="submit" value="11h" onclick="alternarReserva_11h(11, 3)"></li>
                         </ul>
                     </div>
                  </a>

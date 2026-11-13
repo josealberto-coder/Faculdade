@@ -9,10 +9,28 @@
     <link rel="stylesheet" href="style/style2.css">
 
     <script type ="text/javascript">
-
-        const disponivel=()=>{
-            alert("A reserva foi realizada com sucesso.");
+        let contador = 1;
+       const disponivel_9h=()=>{
+        if(contador <=2){
+            contador ++;
+            alert("Sala reservada com sucesso.");
+        }else{
+            alert("Sala indisponível.");
         }
+       }
+
+        let contador2 = 1;
+        const disponivel_11h=()=>{
+            if(contador2 <=2){
+                contador2 ++;
+                alert("Sala reservada com sucesso.");
+            }else{
+                alert("Sala indisponível.");
+            }
+       }
+       
+        
+
         const ocupado=()=>{
             alert("Sala indisponível.");
         }
@@ -41,9 +59,9 @@
 
                     <div class="menu_reserva">
                         <ul>
-                            <li><input type="submit" value="9h" onclick="disponivel()"></li>
+                            <li><input type="submit" value="9h" onclick="disponivel_9h()"></li>
                             <li><input type="submit" value="10h" onclick="ocupado()"></li>
-                            <li><input type="submit" value="11h" onclick="disponivel()"></li>
+                            <li><input type="submit" value="11h" onclick="disponivel_11h()"></li>
                         </ul>
 
                     </div>
