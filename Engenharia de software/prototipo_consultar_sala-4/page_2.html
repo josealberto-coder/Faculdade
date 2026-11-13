@@ -81,6 +81,9 @@
             const botao_ = document.getElementById(`botao${botao}`);
 
             if(status.innerText.toLowerCase() === "ocupado"){
+                contador = 1;
+                contador2 = 1;
+                contador3 = 1;
                 status.innerText = "Livre";
                 botao_.style.display="none";
             }else{
