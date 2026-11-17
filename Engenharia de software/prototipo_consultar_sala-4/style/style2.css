@@ -5,7 +5,8 @@
     --fonte_destaque: "pt sans", sans-serif;
     --cor1: #16b7c9;
     --cor2: #0b134a;
-    --cor3: #000000;
+    --cor3: #2F8C96;
+    --cor4: antiquewhite;
 }
 
 
@@ -49,86 +50,169 @@ main> article> h1{
 
 }
 
-.horarios{
-    position: absolute;
-    display: none;
+.sala_1{
     background-color: var(--cor1);
-    border: 1px solid black;
-    max-width: 125px;
-    margin-top: 5px;
-    padding: 3px;
-    border-radius: 10px;
-    text-align: left;
-    top: 20%;
-    left: 20%;
-}
-
-.horarios li{
-    margin-top: 10px;
-}
-
-.sala1> a{
-    text-decoration: none;
-    color: black;
-    font-size: 1.2em;
-    border: 1px solid black;
-    padding: 5px;
-    border-radius: 5px;
-}
-
-.sala1:hover .horarios{
-    display: block;
-}
-
-a.botao_reserva{
-    display: block;
-    background-color: var(--cor2);
-    max-width: 70px;
-    margin-top: 10px;
-    padding: 8px;
-    text-align: center;
-    text-decoration: none;
-    color: white;
-    border-radius: 10px;
-
-}
-
-a.botao_reserva:hover{
-    font-size: 1.02em;
-}
-
-div.menu_reserva{
-    display: none;
-    position: absolute;
-    background-color: var(--cor2);
     padding: 10px;
+    max-width: 100px;
+    min-height: 100px;
     border-radius: 10px;
-    
 }
-div.menu_reserva li{
-    margin-bottom: 3px;
+.sala_1> h2{
+    background-color: var(--cor3);
+    margin: -10px;
+    padding: 5px;
+    border-radius: 10px 10px 0px 0px ;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.consultar_horario{
+    position: relative;
+}
+.horarios_1{
+    position: absolute;
+    display: none;
+    width: 115px;
+    left: 130%;
+    top: -100%;
+}
+.horarios_1 > ul{
+    text-align: center;
+    background-color: var(--cor4);
+    border-radius: 8px;
+    padding: 5px;
+}
+.consultar_horario> h3{
+    background-color: var(--cor3);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10%;
+    font-size: 1.02em;
+    text-align: center;
+    cursor: pointer;
 }
 
-div.menu_reserva input{
-    width: 50px;
-    font-size: 0.9em;
+.consultar_horario> h3:hover{
+    background-color: var(--cor4);
+
 }
 
-div.menu_reserva input:hover{
-    font-size: 1em;
-    background-color: antiquewhite;
+.consultar_horario:hover .horarios_1{
+    display: block;
+}
+.reservar{
+    position: relative;
 }
 
-a.botao_reserva:hover .menu_reserva{
+.reservar> h3{
+    background-color: var(--cor3);
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 1.02em;
+    text-align: center;
+    cursor: pointer;
+}
+.reservar> h3:hover{
+   background-color: var(--cor4);
+}
+
+.reservas{
+    position: absolute;
+    display: none;
+    width: 100px;
+
+    top: 95%;
+    left: 0%;
+}
+
+.reservas> ul{
+     text-align: center;
+    background-color: var(--cor4);
+    border-radius: 0px 0px 8px 8px ;
+    padding: 15px 5px 5px 5px;
+
+}
+
+
+.reservar:hover .reservas{
+    display: block;
+}
+
+.reservas >ul >li{
+    margin-bottom: 5px;
+}
+
+.reservas >ul >li input{
+    border: none;
+    background-color: var(--cor3);
+    padding: 1px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.reservas> ul> li > input:hover{
+    background-color: white;
+}
+
+#reservas_feitas{
+    display: none;
+}
+
+.cancelar_reserva{
+    background-color: red;
+    margin: 10px 10px 0px 8px;
+    width: 90px;
+    padding: 8px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.cancelar_reserva:hover{
+    background-color: rgb(251, 69, 69);
+    cursor: pointer;
+}
+.reservas_hrs{
+    position: absolute;
+    display: none;
+    text-align: center;
+    left: 12.5%;
+}
+
+#reservas_feitas:hover .reservas_hrs{
     display: block;
 
 }
+
+.reservas_hrs> ul{
+    display: inline-block;
+    background-color: var(--cor1);
+    padding: 10px;
+    text-align: center;
+    border-radius: 0px 0px 8px 8px;
+
+}
+.reservas_hrs > ul >li{
+    margin-bottom: 10px;
+}
+
+.reservas_hrs> ul> li> input{
+    border: none;
+    background-color: var(--cor3);
+    border-radius: 30px;
+    padding: 5px;
+}
+
+.reservas_hrs> ul> li> input:hover{
+    background-color: var(--cor4);
+    cursor: pointer;
+}
+
 
 a.botao_voltar{
     position: absolute;
     top: 90%;
     left: 1%;
     text-decoration: none;
-    color: var(--cor3);
+    color: black;
     font-size: 1.2em;
 }

@@ -9,89 +9,7 @@
     <title>Protótipo</title>
     <link rel="stylesheet" href="style/style2.css">
 
-    <script type ="text/javascript">
-        let contador = 1;
-       const alternarReserva_9h = (hora, botao) => {
-        const elementoStatus = document.getElementById(`status_${hora}h`);
-        if(contador <= 2){
-
-            const botao_ = document.getElementById(`botao${botao}`)
-            if (elementoStatus.innerText.toLowerCase() === "livre") {
-                contador++;
-                botao_.style.display="inline";
-                alert(`A sala foi reservada para horário ${hora}h`);
-            }
-            if(contador >2){
-                elementoStatus.innerText = "Ocupado";
-            }
-
-        }else{
-            alert(`O horário das ${hora}h está ocupado.`);
-        
-        }
-            
-    }
-        let contador2 = 1;
-       const alternarReserva_10h = (hora, botao) => {
-        const elementoStatus = document.getElementById(`status_${hora}h`);
-        if(contador2 <= 2){
-
-            const botao_ = document.getElementById(`botao${botao}`)
-            if (elementoStatus.innerText.toLowerCase() === "livre") {
-                contador2++;
-                botao_.style.display="inline";
-                alert(`A sala foi reservada para horário ${hora}h`);
-            }
-            if(contador2 >2){
-                elementoStatus.innerText = "Ocupado";
-            }
-
-        }else{
-            alert(`O horário das ${hora}h está ocupado.`);
-        
-        }
-            
-    }
-
-        let contador3 = 1;
-       const alternarReserva_11h = (hora, botao) => {
-        const elementoStatus = document.getElementById(`status_${hora}h`);
-        if(contador3 <= 2){
-
-            const botao_ = document.getElementById(`botao${botao}`)
-            if (elementoStatus.innerText.toLowerCase() === "livre") {
-                contador3++;
-                botao_.style.display="inline";
-                alert(`A sala foi reservada para horário ${hora}h`);
-            }
-            if(contador3 >2){
-                elementoStatus.innerText = "Ocupado";
-            }
-
-        }else{
-            alert(`O horário das ${hora}h está ocupado.`);
-        
-        }
-            
-    }
-
-
-        const cancelar_reserva=(hora, botao)=>{
-            const status = document.getElementById(`status_${hora}h`);
-            const botao_ = document.getElementById(`botao${botao}`);
-
-            if(status.innerText.toLowerCase() === "ocupado"){
-                contador = 1;
-                contador2 = 1;
-                contador3 = 1;
-                status.innerText = "Livre";
-                botao_.style.display="none";
-            }else{
-                alert("A sala está livre.");
-        }
-    }
-
-    </script>
+  
 
 </head>
 <body>
@@ -99,38 +17,107 @@
         <article>
             <h1>Consulte os horários</h1>
 
-            <ul>
-                <li class="sala1">
-                    <a href="#">Sala-1</a>
+            <div class = "sala_1">
+                <h2>Sala-1</h2>
 
-                <div class="horarios">
-                    <ul>
-                        <li>Ás 9h: <span id="status_9h">Livre</span></li>
-                        <input type="button" value="Cancelar" onclick="cancelar_reserva(9, 1)" style="display: none;"id="botao1">
-                        <li>Ás 10h: <span id ="status_10h">Livre</span></li>
-                        <input type="button" value="Cancelar" onclick="cancelar_reserva(10, 2)"style="display: none;" id="botao2">
-                        <li>Ás 11h: <span id="status_11h">Livre</span></li>
-                        <input type="button" value="Cancelar" onclick="cancelar_reserva(11, 3)"style="display: none;" id="botao3">
-                    </ul>
-                </div>
-                </li>
-
-                 <a href="#" class="botao_reserva">Reservar
-
-                    <div class="menu_reserva">
+                <div class="consultar_horario">
+                    <h3>Horário</h3>
+                    <div class="horarios_1">
                         <ul>
-                            <li><input type="submit" value="9h" onclick="alternarReserva_9h(9, 1)"></li>
-                            <li><input type="submit" value="10h" onclick="alternarReserva_10h(10, 2)"></li>
-                            <li><input type="submit" value="11h" onclick="alternarReserva_11h(11, 3)"></li>
+                            <li>9h : <span id = "status_9h">Livre</span></li>
+                            <li>10h: <span id = "status_10h">Livre</span></li>
+                            <li>11h: <span id = "status_11h">Livre</span></li>
                         </ul>
                     </div>
-                 </a>
-            </ul>
-        </article>
+                </div>
 
+                <div class="reservar">
+                    <h3>Reservar</h3>
+                    <div class="reservas">
+                        <ul>
+                            <li>9h-<input type="button" value="Reservar" onclick="alterarReserva(9)"></li>
+                            <li>10h-<input type="button" value="Reservar"onclick="alterarReserva(10)"></li>
+                            <li>11h-<input type="button" value ="Reservar" onclick="alterarReserva(11)"></li>
+                         
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div id="reservas_feitas">
+                <h3 class="cancelar_reserva">Cancelar</h3>
+
+                <div class="reservas_hrs">
+                    <ul>
+                        <li><input type="button" value=" 9h " onclick="cancelar_reserva(9)"></li>
+                        <li><input type="button" value="10h" onclick="cancelar_reserva(10)"></li>
+                        <li><input type="button" value="11h" onclick="cancelar_reserva(11)"></li>
+                    </ul>
+
+                </div>
+            </div>
+
+        </article>
         <a href="index.html" class="botao_voltar">
         <img src="image/botao_voltar.webp" alt="voltar">voltar</a>
     </main>
+
+
+
+
+
+
+
+
+<script type ="text/javascript">
+    let reservas = 0;
+
+
+
+    const alterarReserva = (hora) => {
+    const elementoStatus = document.getElementById(`status_${hora}h`);
+
+    if (elementoStatus.innerText.toLowerCase() === "livre") {
+        reservas = reservas+1;
+        elementoStatus.innerText = "Ocupado"
+
+        alert(`A sala foi reservada para horário ${hora}h`);
+
+    }else{
+        alert(`O horário das ${hora}h está ocupado.`);
+    }
+}
+
+
+
+    const cancelar_reserva=(hora)=>{
+        const status = document.getElementById(`status_${hora}h`);
+    
+
+        if(status.innerText.toLowerCase() === "ocupado"){
+            status.innerText = "Livre";
+            alert("Reserva cancelada com sucesso.");
+            reservas -= 1;
+
+        }else{
+            alert("A sala está livre.");
+    }
+}
+
+    if(reservas >= 0){
+        document.getElementById('reservas_feitas').style.display = "block";   
+    }else{
+        document.getElementById("reservas_feitas").style.display = "none";
+}
+
+console.log(reservas);
+
+
+  
+
+</script>
+
 
 </body>
 </html>
