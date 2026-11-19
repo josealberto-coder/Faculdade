@@ -21,7 +21,7 @@ ul{
 
 body{
     font-family: var(--fonte_destaque);
-    background-image: url("../image/image_fundo_2.jpg");
+    background-image: url("../image/fundo_3.jpg");
     background-position: center center;
     display: flex;
     height: 100vh;
@@ -31,17 +31,17 @@ body{
 
 main{
     position: relative;
-    background-color: rgba(255, 255, 255, 0.149);
+    background-color: rgba(255, 255, 255, 0.189);
     flex: 1;
     max-width: 600px;
-    min-width: 280px;
+    min-width: 230px;
     min-height: 500px;
     align-self: center;
     margin: auto;
     padding: 50px;
     border-radius: 10px;
-    border: 2px solid rgba(141, 137, 137, 0);
-    box-shadow: 5px 5px 10px 2px rgba(0, 0, 0, 0.43);
+    border: 2px solid rgba(141, 137, 137, 0.279);
+    box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.43);
 }
 main> article> h1{
     color: var(--cor1);

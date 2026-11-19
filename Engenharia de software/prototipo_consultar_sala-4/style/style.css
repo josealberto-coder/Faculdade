@@ -5,8 +5,9 @@
 :root{
     --fontePadrao: arial, helvetica, verdana, sans-serif;
     --fontedestaque: "pt sans", sans-serif;
-    --cor1: #16b7c9;
-    --cor2:#000000;
+    --cor1: white;
+    --cor2: #0084ff;
+    --cor3: #2d3238;
 
 }
 
@@ -17,15 +18,26 @@
     list-style-type: none;
 
 body{
-    background-color: white;
+    height:100vh;
+    background-image: url("../image/fundo_3.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 1600px;
+    background-attachment: fixed;
+    
+    padding: 10px;
+    
 }
 }
 header{
     display: flex;
     flex-wrap: wrap;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.189);
     padding: 10px;
+    border-radius: 10px;
     margin-top: 20px;
+
+
 
 }
 
@@ -55,7 +67,9 @@ nav> ul{
 nav> ul >li >a{
     text-decoration: none;
     font-size: 1.05em;
+    text-shadow: 1px 0px 1px rgba(255, 255, 255, 0.549);
     color: var(--cor2);
+    font-weight: bolder;
     padding: 10px;
 }
 nav > ul> li> a:hover{
@@ -67,7 +81,7 @@ nav > ul> li> a:hover{
 
 #Cores_fundo ul{
     position: absolute;
-    background-color: var(--cor2);
+    background-color: var(--cor3);
     padding: 5px;
     border-radius: 10px;
     columns: 1;
@@ -81,7 +95,9 @@ nav > ul> li> a:hover{
 }
 
 .Escuro_claro input{
-    background-color: var(--cor1);
+    border: none;
+    font-family: var(--fontePadrao);
+    background-color: var(--cor2);
     cursor: pointer;
 }
 
@@ -96,10 +112,11 @@ main{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: rgb(237, 232, 232);
+    background-color: rgba(255, 255, 255, 0.189);
     padding: 10px;
     margin-top: 20px;
     box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.449);
+    border-radius: 10px;
 }
 
 main> article{
@@ -122,10 +139,11 @@ main> article> h1{
 }
 
 a.botao_consultar{
-    border: 2px solid var(--cor2);
+    background-color: var(--cor3);
+    border: 2px solid black;
     text-decoration: none;
     text-align: center;
-    color: var(--cor2);
+    color:var(--cor2);
     font-weight: bolder;
     padding: 12px;
     border-radius: 40px;
@@ -157,7 +175,7 @@ img.sala2{
     max-width: 326px;
     border-radius: 10px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.384);
-    margin: 15px;
+    margin: 15px 15px 0px 15px;
 
 }
 
@@ -169,7 +187,7 @@ img.sala3{
 }
 
 footer{
-    background-color: var(--cor2);
+    background-color: black;
     margin-top: 312px;
     color: white;
     font-size: 1.3em;
