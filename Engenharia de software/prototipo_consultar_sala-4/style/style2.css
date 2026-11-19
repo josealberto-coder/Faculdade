@@ -22,14 +22,16 @@ ul{
 body{
     font-family: var(--fonte_destaque);
     background-image: url("../image/image_fundo_2.jpg");
+    background-position: center center;
     display: flex;
     height: 100vh;
     padding: 15px;
 }
 
+
 main{
     position: relative;
-    background-color: rgba(255, 255, 255, 0.312);
+    background-color: rgba(255, 255, 255, 0.688);
     flex: 1;
     max-width: 600px;
     min-width: 280px;
