@@ -21,7 +21,7 @@ ul{
 
 body{
     font-family: var(--fonte_destaque);
-    background: var(--cor2);
+    background-image: url("../image/image_fundo_2.jpg");
     display: flex;
     height: 100vh;
     padding: 15px;
@@ -29,7 +29,7 @@ body{
 
 main{
     position: relative;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.312);
     flex: 1;
     max-width: 600px;
     min-width: 280px;
