@@ -22,7 +22,7 @@ body{
     background-image: url("../image/fundo_3.jpg");
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: 1600px;
+    background-size: cover;
     background-attachment: fixed;
     
     padding: 10px;
