@@ -11,10 +11,16 @@
 
     <script>
         const corEscura=()=>{
-            document.getElementById("fundo").style.backgroundColor="rgb(28, 28, 28)"
+            document.getElementById("fundo").style.backgroundImage= "url('image/fundo_escuro.jpg')";
+            document.getElementById("texto").style.color="white";
+            document.getElementById("texto2").style.color="white";
+
         }
         const corClara=()=>{
-            document.getElementById("fundo").style.backgroundColor="white"
+            document.getElementById("fundo").style.backgroundImage="none";
+            document.getElementById("texto").style.color="black";
+            document.getElementById("texto2").style.color="black";
+
         }
 
     </script>
@@ -22,7 +28,7 @@
 </head>
 <body id="fundo">
     <header>
-        <img src="image/logo.png" alt="logo"><h1>Sala</h1>
+        <img src="image/logo.png" alt="logo"><h1 id="texto">Sala</h1>
         <nav>
             <ul>
                 <li><a href="#">Menu</a></li>
@@ -41,7 +47,7 @@
 
     <main>
         <article>
-            <h1>Consultar disponibilidade da sala de estudos</h1>
+            <h1 id="texto2">Consultar disponibilidade da sala de estudos</h1>
             <a href="page_2.html" target="_self" rel ="next" class="botao_consultar">Consulte agora</a>
         </article>
 
