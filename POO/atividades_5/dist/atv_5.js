@@ -34,6 +34,9 @@ class Conta {
         this.sacar(valor);
         contaDestino.depositar(valor);
     }
+    obter_cliente() {
+        return this.cliente;
+    }
     consultarSaldo() {
         return this.saldo;
     }
@@ -64,6 +67,10 @@ class Cliente {
         conta.associacao_conta = true;
     }
     consultar_contas() {
+        if (this.contas.length == 0) {
+            console.log("Sem contas cadastradas.\n");
+            return;
+        }
         for (let conta of this.contas) {
             console.log(conta);
         }
@@ -75,6 +82,30 @@ class Cliente {
         }
         return total;
     }
+    consultar_indice(num) {
+        for (let i = 0; i < this.contas.length; i++) {
+            let conta = this.contas[i];
+            if (conta && conta.obter_num() == num) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    excluir_conta(num) {
+        if (this.consultar_indice(num) != -1) {
+            let indice = this.consultar_indice(num);
+            for (let i = indice; i < this.contas.length - 1; i++) {
+                this.contas[i] = this.contas[i + 1];
+            }
+            this.contas.pop();
+        }
+    }
+    excluir_todas_contas() {
+        this.contas = [];
+    }
+    obter_cpf() {
+        return this.cpf;
+    }
 }
 class Banco {
     contas;
@@ -82,6 +113,27 @@ class Banco {
     constructor() {
         this.contas = [];
         this.clientes = [];
+    }
+    consultar_cliente() {
+        for (let cliente of this.clientes) {
+            console.log(`Cliente: ${cliente.nome}`);
+        }
+    }
+    consultar_conta() {
+        for (let conta of this.contas) {
+            console.log(`
+Conta: 
+Cliente: ${conta.obter_cliente()?.nome}
+número->:${conta.obter_num()} \n
+`);
+        }
+    }
+    consultar_cliente_sem_conta() {
+        for (let cliente of this.clientes) {
+            if (cliente.associacao_cliente == false) {
+                console.log(`Nome: ${cliente.nome}\n`);
+            }
+        }
     }
     associarConta_cliente(cpf, contaNum) {
         let conta = this.obter_conta(contaNum);
@@ -171,7 +223,7 @@ class Banco {
         }
         return null;
     }
-    consultarIndice(id) {
+    consultarIndice_conta(id) {
         for (let i = 0; i < this.contas.length; i++) {
             let conta = this.contas[i];
             if (conta && conta.obterId() == id) {
@@ -180,13 +232,39 @@ class Banco {
         }
         return -1;
     }
-    excluir(id) {
-        let indice = this.consultarIndice(id);
+    excluir_conta(id) {
+        let indice = this.consultarIndice_conta(id);
         if (indice != -1) {
             for (let i = indice; i < this.contas.length - 1; i++) {
                 this.contas[i] = this.contas[i + 1];
             }
             this.contas.pop();
+        }
+    }
+    consultar_indice_cliente(cpf) {
+        for (let i = 0; i < this.clientes.length; i++) {
+            let cliente = this.clientes[i];
+            if (cliente && cliente.obter_cpf() == cpf) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    excluir_cliente(cpf) {
+        if (this.consultar_indice_cliente(cpf) != -1) {
+            let cliente = this.clientes[this.consultar_indice_cliente(cpf)];
+            for (let conta of cliente.contas) {
+                this.excluir_conta(conta.obterId());
+            }
+            cliente.associacao_cliente = false;
+            cliente.excluir_todas_contas();
+            for (let i = this.consultar_indice_cliente(cpf); i < this.clientes.length - 1; i++) {
+                this.clientes[i] = this.clientes[i + 1];
+            }
+            this.clientes.pop();
+        }
+        else {
+            console.log("Cliente inexistente.\n");
         }
     }
     depositar(id, valor) {
@@ -227,19 +305,12 @@ class Banco {
     media_valor_contas() {
         return this.valor_total_contas() / this.quantidade_contas();
     }
+    mudar_cliente(cliente, num) {
+        let conta = this.obter_conta(num);
+        let cliente_anterior = conta.obter_cliente();
+        cliente_anterior.excluir_conta(num);
+        conta.adicionar_cliente(cliente);
+        cliente.adiconar_conta(conta);
+    }
 }
-const conta1 = new Conta(1, "123", 1000, new Date("2000-12-10"));
-const conta2 = new Conta(2, "345", 500, new Date("2020-10-23"));
-const cliente1 = new Cliente(1, "jose", "832", new Date("2000-10-21"));
-const cliente2 = new Cliente(2, "Carlos", "321", new Date("1980-09-13"));
-const banco = new Banco();
-banco.adicionar_cliente(cliente1);
-banco.adicionar_cliente(cliente2);
-banco.adicionar_conta(conta1);
-banco.adicionar_conta(conta2);
-banco.associarConta_cliente("832", "123");
-banco.associarConta_cliente("321", "345");
-cliente1.consultar_contas();
-cliente2.consultar_contas();
-console.log(banco.media_valor_contas());
 //# sourceMappingURL=atv_5.js.map
