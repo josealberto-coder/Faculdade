@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Pet Shop - Banho e Tosa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main id="menu_registro">
+        <h1>Pet Shop - Banho e Tosa</h1>
+
+        <form id="form_petshop">
+            <div class="campo_grupo">
+                <label for="tutor">Tutor:</label>
+                <input type="text" id="tutor" class="campo_preencher" required>
+            </div>
+
+            <div class="campo_grupo">
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" class="campo_preencher" placeholder="(00) 00000-0000" required>
+            </div>
+
+            <div class="campo_grupo">
+                <label>Animais:</label>
+                <table id="tabela_animais">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Porte</th>
+                            <th>Serviço</th>
+                            <th>Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true" class="celula_preco"></td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true" class="celula_preco"></td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true" class="celula_preco"></td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true" class="celula_preco"></td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true" class="celula_preco"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div id="rodape_total">
+                <span class="label_total">Total:</span>
+                <span id="preco_total">R$ 0,00</span>
+            </div>
+
+            <div class="acoes">
+                <button type="submit" id="botao_registrar">Registrar</button>
+            </div>
+        </form>
+    </main>
+
+    <!-- Nova seção para o Histórico de Atendimentos -->
+    <section id="secao_historico">
+        <div class="cabecalho_historico">
+            <h2>Histórico de Atendimentos</h2>
+            <button type="button" id="botao_limpar_historico">Limpar Histórico</button>
+        </div>
+        <div id="lista_historico">
+            <p class="aviso_vazio">Nenhum atendimento registrado ainda.</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
