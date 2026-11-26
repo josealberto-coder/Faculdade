@@ -1,12 +1,13 @@
 @charset "UTF-8";
 
+
 @import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
+
+
+*{
+    padding: 0px;
+    margin: 0px;
 }
 
 :root{
@@ -14,235 +15,105 @@
     --cor2: #7ed0ff;
 
     --fontedestaque: "shatell sans";
+    --fontepadrao: arial, helvetica, sans-serif;
+
 }
 
-body {
-    min-height: 100vh;
-    background-color: #f4f4f4ae;
+
+body{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    padding: 24px 16px;
-    background-image: url(image/fundo.jpg);
-    background-repeat: no-repeat;
+    background-image: url("image/fundo_login.jpg");
     background-position: center center;
     background-size: cover;
-    background-attachment: fixed;
+    background-repeat: no-repeat;
+    height: 100vh;
+    padding: 0px 10px 0px 10px;
+
+    justify-content: center;
+    align-items: center;
+
+
 }
 
-#menu_registro {
-    background-color: #ffffffad;
+.formulario_login{
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.441);
     width: 100%;
-    max-width: 420px;
-    border-radius: 12px;
-    border: 2px solid var(--cor2);
-    padding: 20px;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.474);
+    max-width: 500px;
+    height: 600px;
+    border-radius: 10px;
+    border: 1px solid var(--cor2);
+
+
 }
 
-h1 {
-    text-align: center;
-    font-size: 1.5em;
-    font-weight: 500;
-    color: #222;
-    margin-bottom: 18px;
+h1{
     font-family: var(--fontedestaque);
-    color: var(--cor2);
-    font-weight: bolder;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.362);
+    text-align: center;
+    color: var(--cor1);
+    margin: 10px;
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.69);
 }
 
-h2 {
-    font-size: 1.15rem;
-    font-weight: 500;
-    font-weight: bolder;
-    color: #222;
+h2{
+
+    font-size: 1.3em;
+    font-family: var(--fontepadrao);
+    color: rgb(0, 0, 0);
 }
 
-.campo_grupo {
-    margin-bottom: 14px;
+
+#formulario{
+    position: absolute;
+    width: 100%;
+    max-width: 400px;
+    background-color:transparent;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    height: 500px;
+
 }
 
-label {
+#dados_login{
+    position: absolute;
+    width: 100%;
+    max-width: 300px;
+    background-color: transparent;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -100%);
+
+}
+
+.preencher_campo{
     display: block;
-    font-size: 0.95rem;
-    color: #222;
-    margin-bottom: 6px;
-}
-
-
-
-.campo_preencher {
+    margin: auto;
     width: 100%;
-    height: 34px;
-    padding: 4px 8px;
-    border-radius: 6px;
-    font-size: 0.95rem;
-    color: #222;
-    background-color: #ffffff;
+    max-width: 300px;
     border: 2px solid var(--cor2);
+    border-radius: 10px;
+    padding: 5px;
+
 }
 
-#tabela_animais {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed;
+#botao_entrar{
+    position: absolute;
+    text-decoration: none;
+    background-color: white;
+    padding: 5px 10px 5px 10px;
+    border-radius: 5px;
+
+    top: 100%;
+    left: 50%;
+
+    transform: translate(-50%, -110%);
 }
 
-#tabela_animais th,
-#tabela_animais td {
-    border: 2px solid var(--cor2);
-    height: 28px;
-    padding: 2px 6px;
-    font-size: 0.85rem;
-    text-align: center;
-    color: #222;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-#tabela_animais th {
-    font-weight: 500;
-    color: #222;
-}
-
-#rodape_total {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 22px;
-    margin-bottom: 16px;
-}
-
-.label_total {
-    font-size: 0.95rem;
-    color: #333;
-}
-
-#preco_total {
-    width: 130px;
-    text-align: right;
-    border-bottom: 1.5px solid #555;
-    padding-bottom: 2px;
-    font-size: 0.95rem;
-    color: #222;
-}
-
-.acoes {
-    display: flex;
-    justify-content: flex-end;
-}
-
-#botao_registrar,
-#botao_limpar_historico {
-    width: 130px;
-    height: 36px;
-    background-color: #ffffff;
-    border: 1.5px solid #555;
-    border-radius: 8px;
-    font-size: 0.95rem;
-    color: #222;
-    cursor: pointer;
-}
-
-#botao_registrar:hover,
-#botao_limpar_historico:hover {
-    background-color: #efefef;
-}
-
-/* Seção do Histórico seguindo o mesmo padrão visual */
-#secao_historico {
-    background-color: #ffffffad;
-    width: 100%;
-    max-width: 420px;
-    border: 2px solid var(--cor2);
-    border-radius: 12px;
-    padding: 20px;
-}
-
-.cabecalho_historico {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 16px;
-}
-
-#botao_limpar_historico {
-    width: auto;
-    height: 32px;
-    padding: 0 12px;
-    font-size: 0.85rem;
-}
-
-#lista_historico {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.aviso_vazio {
-    font-size: 0.9rem;
-    color: #555;
-    text-align: center;
-    padding: 12px 0;
-}
-
-.card_atendimento {
-    border: 1.5px solid #666;
-    border-radius: 8px;
-    padding: 12px;
-    background-color: #ffffff;
-}
-
-.card_topo {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 8px;
-    font-size: 0.85rem;
-    color: #222;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #ccc;
-}
-
-.card_topo small {
-    font-size: 0.78rem;
-    color: #555;
-    white-space: nowrap;
-}
-
-.card_animais {
-    list-style: none;
-    margin: 10px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    font-size: 0.85rem;
-    color: #333;
-}
-
-.card_rodape {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 8px;
-    border-top: 1px solid #ccc;
-    font-size: 0.9rem;
-    color: #222;
-}
-
-.btn_excluir {
-    background-color: #ffffff;
-    border: 1.5px solid #555;
-    border-radius: 6px;
-    padding: 4px 10px;
-    font-size: 0.8rem;
-    color: #222;
-    cursor: pointer;
-}
-
-.btn_excluir:hover {
-    background-color: #efefef;
+#botao_entrar:hover{
+    background-color: antiquewhite;
 }

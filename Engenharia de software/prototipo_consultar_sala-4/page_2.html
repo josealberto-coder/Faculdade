@@ -64,61 +64,7 @@
         
     </main>
 
-
-
-
-
-
-
-
-<script type ="text/javascript">
-    let reservas = 0;
-
-
-
-    const alterarReserva = (hora) => {
-    const elementoStatus = document.getElementById(`status_${hora}h`);
-
-    if (elementoStatus.innerText.toLowerCase() === "livre") {
-        reservas = reservas+1;
-        elementoStatus.innerText = "Ocupado"
-
-        alert(`A sala foi reservada para horário ${hora}h`);
-
-    }else{
-        alert(`O horário das ${hora}h está ocupado.`);
-    }
-}
-
-
-
-    const cancelar_reserva=(hora)=>{
-        const status = document.getElementById(`status_${hora}h`);
-    
-
-        if(status.innerText.toLowerCase() === "ocupado"){
-            status.innerText = "Livre";
-            alert("Reserva cancelada com sucesso.");
-            reservas -= 1;
-
-        }else{
-            alert("A sala está livre.");
-    }
-}
-
-    if(reservas >= 0){
-        document.getElementById('reservas_feitas').style.display = "block";   
-    }else{
-        document.getElementById("reservas_feitas").style.display = "none";
-}
-
-console.log(reservas);
-
-
-  
-
+<script src="script.js">
 </script>
-
-
 </body>
 </html>

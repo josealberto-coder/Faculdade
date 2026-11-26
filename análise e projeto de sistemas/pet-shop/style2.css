@@ -1,0 +1,248 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Shantell+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root{
+    --cor1: #f4c300;
+    --cor2: #7ed0ff;
+
+    --fontedestaque: "shatell sans";
+}
+
+body {
+    min-height: 100vh;
+    background-color: #f4f4f4ae;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 24px 16px;
+    background-image: url(image/fundo.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#menu_registro {
+    background-color: #ffffffad;
+    width: 100%;
+    max-width: 420px;
+    border-radius: 12px;
+    border: 2px solid var(--cor2);
+    padding: 20px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.474);
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 500;
+    color: #222;
+    margin-bottom: 18px;
+    font-family: var(--fontedestaque);
+    color: var(--cor2);
+    font-weight: bolder;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.362);
+}
+
+h2 {
+    font-size: 1.15rem;
+    font-weight: 500;
+    font-weight: bolder;
+    color: #222;
+}
+
+.campo_grupo {
+    margin-bottom: 14px;
+}
+
+label {
+    display: block;
+    font-size: 0.95rem;
+    color: #222;
+    margin-bottom: 6px;
+}
+
+
+
+.campo_preencher {
+    width: 100%;
+    height: 34px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    color: #222;
+    background-color: #ffffff;
+    border: 2px solid var(--cor2);
+}
+
+#tabela_animais {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+#tabela_animais th,
+#tabela_animais td {
+    border: 2px solid var(--cor2);
+    height: 28px;
+    padding: 2px 6px;
+    font-size: 0.85rem;
+    text-align: center;
+    color: #222;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#tabela_animais th {
+    font-weight: 500;
+    color: #222;
+}
+
+#rodape_total {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 22px;
+    margin-bottom: 16px;
+}
+
+.label_total {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+#preco_total {
+    width: 130px;
+    text-align: right;
+    border-bottom: 1.5px solid #555;
+    padding-bottom: 2px;
+    font-size: 0.95rem;
+    color: #222;
+}
+
+.acoes {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#botao_registrar,
+#botao_limpar_historico {
+    width: 130px;
+    height: 36px;
+    background-color: #ffffff;
+    border: 1.5px solid #555;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #222;
+    cursor: pointer;
+}
+
+#botao_registrar:hover,
+#botao_limpar_historico:hover {
+    background-color: #efefef;
+}
+
+/* Seção do Histórico seguindo o mesmo padrão visual */
+#secao_historico {
+    background-color: #ffffffad;
+    width: 100%;
+    max-width: 420px;
+    border: 2px solid var(--cor2);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.cabecalho_historico {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+#botao_limpar_historico {
+    width: auto;
+    height: 32px;
+    padding: 0 12px;
+    font-size: 0.85rem;
+}
+
+#lista_historico {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.aviso_vazio {
+    font-size: 0.9rem;
+    color: #555;
+    text-align: center;
+    padding: 12px 0;
+}
+
+.card_atendimento {
+    border: 1.5px solid #666;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #ffffff;
+}
+
+.card_topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: #222;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ccc;
+}
+
+.card_topo small {
+    font-size: 0.78rem;
+    color: #555;
+    white-space: nowrap;
+}
+
+.card_animais {
+    list-style: none;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.card_rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 8px;
+    border-top: 1px solid #ccc;
+    font-size: 0.9rem;
+    color: #222;
+}
+
+.btn_excluir {
+    background-color: #ffffff;
+    border: 1.5px solid #555;
+    border-radius: 6px;
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    color: #222;
+    cursor: pointer;
+}
+
+.btn_excluir:hover {
+    background-color: #efefef;
+}
