@@ -1,0 +1,202 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root{
+    --fontePadrao: arial, helvetica, verdana, sans-serif;
+    --fontedestaque: "pt sans", sans-serif;
+    --cor1: white;
+    --cor2: #0084ff;
+    --cor3: #2d3238;
+
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: var(--fontePadrao);
+    list-style-type: none;
+
+body{ 
+
+    height:100vh;
+    background-image: url("../image/fundo_escuro.jpg");
+    background-color: white;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    
+    padding: 10px;
+    
+}
+}
+header{
+
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.189);
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+
+
+
+}
+
+header> h1{
+    display: inline-block;
+    color: var(--cor1);
+    text-shadow: 1px 0px 5px rgba(0, 0, 0, 0.388);
+    align-self: center;
+    
+}
+
+nav{
+    margin-left: 50px;
+    align-self: center;
+    position: relative;
+    
+
+}
+nav> ul{
+    columns: 3;
+    
+}
+
+
+
+
+nav> ul >li >a{
+    text-decoration: none;
+    font-size: 1.05em;
+    text-shadow: 1px 0px 1px rgba(255, 255, 255, 0.549);
+    color: var(--cor2);
+    font-weight: bolder;
+    padding: 10px;
+}
+nav > ul> li> a:hover{
+    background-color: var(--cor1);
+    border-radius: 10px;
+    
+}
+
+
+#Cores_fundo ul{
+    position: absolute;
+    background-color: var(--cor3);
+    padding: 5px;
+    border-radius: 10px;
+    columns: 1;
+    text-align: center;
+    top: 150%;
+    left: 69.5%;    
+
+}
+.Escuro_claro li{
+    margin: 10px 0px 10px 0px;
+}
+
+.Escuro_claro input{
+    border: none;
+    font-family: var(--fontePadrao);
+    background-color: var(--cor2);
+    cursor: pointer;
+}
+
+#Cores_fundo> ul{
+    display: none;
+}
+#Cores_fundo:hover > ul{
+    display: block;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.189);
+    padding: 10px;
+    margin-top: 20px;
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.449);
+    border-radius: 10px;
+}
+
+main> article{
+    display: inline-block;
+    max-width: 430px;
+    padding: 80px 50px 30px 50px;
+    text-shadow: 1px 0px 3px rgba(0, 0, 0, 0.388);
+    text-align: center ;
+    color: var(--cor1);
+    align-self: center;
+    
+        
+}
+main> article> h1{
+    display: inline-block;
+    font-family: var(--fontedestaque);
+    margin-bottom: 30px;
+    line-height: 1em;
+    
+}
+
+a.botao_consultar{
+    background-color: var(--cor3);
+    border: 2px solid black;
+    text-decoration: none;
+    text-align: center;
+    color:var(--cor2);
+    font-weight: bolder;
+    padding: 12px;
+    border-radius: 40px;
+    font-size: 1.2em;
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.477);
+
+}
+a.botao_consultar:hover{
+    background-color: white;
+    font-size: 1.22em;
+}
+div.imagens_sala{
+    
+    display: inline-block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+img.foto_sala1{
+    display: inline-block;
+    max-width: 280px;
+    border-radius: 10px;
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.384);
+   
+}
+img.sala2{
+    display: inline-block;
+    max-width: 326px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.384);
+    margin: 15px 15px 0px 15px;
+
+}
+
+img.sala3{
+    display: inline-block;
+    max-width: 280px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.384);
+}
+
+footer{
+    background-color: black;
+    width: 100%;
+    padding-bottom: 10px;
+    color: white;
+    font-size: 1.3em;
+    text-align: center;
+    margin-top: 345px;
+
+
+}
