@@ -1,70 +1,157 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-    <title>Protótipo</title>
+    <title>Gestão de Salas | Sala-1</title>
     <link rel="stylesheet" href="style/style2.css">
-
-  
-
 </head>
 <body>
-    <main>
-        <article>
-            <h1>Consulte os horários</h1>
-
-            <div class = "sala_1">
-                <h2>Sala-1</h2>
-
-                <div class="consultar_horario">
-                    <h3>Horário</h3>
-                    <div class="horarios_1">
-                        <ul>
-                            <li>9h : <span id = "status_9h">Livre</span></li>
-                            <li>10h: <span id = "status_10h">Livre</span></li>
-                            <li>11h: <span id = "status_11h">Livre</span></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="reservar">
-                    <h3>Reservar</h3>
-                    <div class="reservas">
-                        <ul>
-                            <li>9h-<input type="button" value="Reservar" onclick="alterarReserva(9)"></li>
-                            <li>10h-<input type="button" value="Reservar"onclick="alterarReserva(10)"></li>
-                            <li>11h-<input type="button" value ="Reservar" onclick="alterarReserva(11)"></li>
-                         
-                        </ul>
-                    </div>
-                </div>
+    <main class="container_principal">
+        <header class="cabecalho_painel">
+            <div>
+                <span class="badge_sala">Sala-1 • Capacidade: 2 estudantes</span>
+                <h1>Gestão de Horários</h1>
             </div>
+            <a href="index.html" target="_self" rel="prev" class="botao_voltar" title="Voltar ao início">
+                <img src="image/botao_voltar.webp" alt="Voltar">
+                <span>Voltar</span>
+            </a>
+        </header>
 
-            
-            <div id="reservas_feitas">
-                <h3 class="cancelar_reserva">Cancelar</h3>
+        <nav class="barra_abas" aria-label="Navegação do painel">
+            <button type="button" class="aba_btn ativa" id="btn_aba_reservas" onclick="alternarAba('reservas')">
+                Horários e Reservas
+            </button>
+            <button type="button" class="aba_btn" id="btn_aba_minhas_reservas" onclick="alternarAba('minhas_reservas')">
+                Minhas Reservas <span class="contador_aba" id="contador_reservas">0</span>
+            </button>
+            <button type="button" class="aba_btn" id="btn_aba_trocas" onclick="alternarAba('trocas')">
+                Minhas Trocas <span class="contador_aba" id="contador_trocas">0</span>
+            </button>
+        </nav>
 
-                <div class="reservas_hrs">
-                    <ul>
-                        <li><input type="button" value=" 9h " onclick="cancelar_reserva(9)"></li>
-                        <li><input type="button" value="10h" onclick="cancelar_reserva(10)"></li>
-                        <li><input type="button" value="11h" onclick="cancelar_reserva(11)"></li>
+        <div id="alerta_feedback" class="alerta_feedback" role="status" aria-live="polite"></div>
+
+        <!-- ABA 1: HORÁRIOS E RESERVAS -->
+        <div id="conteudo_aba_reservas" class="conteudo_aba ativa">
+            <section class="grade_horarios" aria-label="Disponibilidade por horário">
+                <article class="card_horario" id="card_9h">
+                    <div class="topo_card">
+                        <span class="hora_titulo">09:00</span>
+                        <span class="status_pill" id="pill_9h">Livre</span>
+                    </div>
+                    <p class="vagas_info" id="vagas_9h">0 de 2 vagas ocupadas</p>
+                    <ul class="lista_ocupantes" id="ocupantes_9h">
+                        <li class="vazio">Nenhum estudante reservado</li>
                     </ul>
+                </article>
 
+                <article class="card_horario" id="card_10h">
+                    <div class="topo_card">
+                        <span class="hora_titulo">10:00</span>
+                        <span class="status_pill" id="pill_10h">Livre</span>
+                    </div>
+                    <p class="vagas_info" id="vagas_10h">0 de 2 vagas ocupadas</p>
+                    <ul class="lista_ocupantes" id="ocupantes_10h">
+                        <li class="vazio">Nenhum estudante reservado</li>
+                    </ul>
+                </article>
+
+                <article class="card_horario" id="card_11h">
+                    <div class="topo_card">
+                        <span class="hora_titulo">11:00</span>
+                        <span class="status_pill" id="pill_11h">Livre</span>
+                    </div>
+                    <p class="vagas_info" id="vagas_11h">0 de 2 vagas ocupadas</p>
+                    <ul class="lista_ocupantes" id="ocupantes_11h">
+                        <li class="vazio">Nenhum estudante reservado</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="painel_operacoes" aria-label="Operações de reserva">
+                <div class="campo_grupo">
+                    <label for="input_estudante">Nome do estudante</label>
+                    <input type="text" id="input_estudante" placeholder="Ex.: Ana Silva" autocomplete="off">
                 </div>
-            </div>
 
-        </article>
+                <div class="campo_grupo">
+                    <label for="select_horario_principal">Horário</label>
+                    <select id="select_horario_principal">
+                        <option value="9">09:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                    </select>
+                </div>
 
-            <a href="index.html" target="_self" rel="prev" class="botao_voltar"><img src="image/botao_voltar.webp" alt="Voltar"></a>
-        
+                <div class="campo_grupo">
+                    <label for="select_horario_destino">Novo horário (para troca)</label>
+                    <select id="select_horario_destino">
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                    </select>
+                </div>
+
+                <div class="grupo_botoes">
+                    <button type="button" class="btn btn_reservar" onclick="reservarSala()">Reservar</button>
+                    <button type="button" class="btn btn_trocar" onclick="trocarHorario()">Trocar</button>
+                    <button type="button" class="btn btn_cancelar" onclick="cancelarReserva()">Cancelar</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- ABA 2: MINHAS RESERVAS -->
+        <div id="conteudo_aba_minhas_reservas" class="conteudo_aba">
+            <section class="painel_secao" id="minhas_reservas">
+                <div class="cabecalho_secao">
+                    <div>
+                        <h2>Minhas Reservas</h2>
+                        <span class="subtitulo_secao">Consulte as reservas ativas e cancele quando necessário</span>
+                    </div>
+                </div>
+
+                <div class="filtro_secao">
+                    <input
+                        type="text"
+                        id="input_filtro_reservas"
+                        placeholder="Filtrar por nome do estudante..."
+                        oninput="renderizarMinhasReservas()"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <ul id="lista_minhas_reservas"></ul>
+            </section>
+        </div>
+
+        <!-- ABA 3: MINHAS TROCAS -->
+        <div id="conteudo_aba_trocas" class="conteudo_aba">
+            <section class="painel_secao" id="historico_trocas">
+                <div class="cabecalho_secao">
+                    <div>
+                        <h2>Minhas Trocas</h2>
+                        <span class="subtitulo_secao">Consulte e gerencie o histórico de alterações de horário</span>
+                    </div>
+                    <button type="button" id="btn_limpar_historico" onclick="limparHistorico()">Excluir histórico</button>
+                </div>
+
+                <div class="filtro_secao">
+                    <input
+                        type="text"
+                        id="input_filtro_trocas"
+                        placeholder="Filtrar por nome do estudante..."
+                        oninput="renderizarHistorico()"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <ul id="lista_historico_trocas"></ul>
+            </section>
+        </div>
     </main>
 
-<script src="script.js">
-</script>
+<script src="script.js"></script>
 </body>
 </html>
